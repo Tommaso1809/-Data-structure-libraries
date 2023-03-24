@@ -1,12 +1,13 @@
 #pragma once
-#include "Node_Doppio.h"
+#include "Double_Node.h"
 
+template<typename T>
 class List{
 	
 	private:
 		
-		Node *head;
-		Node *tail;
+		Node<T> *head;
+		Node<T> *tail;
 	public:
 	
 		List(){
@@ -16,7 +17,7 @@ class List{
 		
 		void print(){
 			
-			Node *tmp;
+			Node<T> *tmp;
 			tmp=head;
 			
 			while(tmp!=NULL){
@@ -28,14 +29,14 @@ class List{
 			cout<<"["<<"NULL"<<"]"<<endl;
 		}
 		
-		void push_front(int data){
+		void push_front(T data){
 			
-			Node *new_node;
-			new_node=new Node(data,head);
+			Node<T> *new_node;
+			new_node=new Node<T>(data,head);
 			head=new_node;
 		}
 		
-		void push_tail(int data){
+		void push_tail(T data){
 			
 			if(head==NULL){
 				
@@ -43,10 +44,10 @@ class List{
 			}
 			else{
 
-				Node *tmp,*new_node;
+				Node<T> *tmp,*new_node;
 				tmp=head;
 				
-				new_node=new Node(data);
+				new_node=new Node<T>(data);
 				
 				while(tmp->getNext()!=NULL){
 					
@@ -61,7 +62,7 @@ class List{
 		
 		void delete_front(){
 			
-			Node *tmp,*tmp1;
+			Node<T> *tmp,*tmp1;
 			tmp=head;
 			tmp1=tmp->getNext();
 			delete tmp;
@@ -74,8 +75,8 @@ class List{
 			
 			if(head!=NULL){
 			
-				Node *tmp;
-				tmp=new Node;
+				Node<T> *tmp;
+				tmp=new Node<T>;
 				tmp=head;
 				
 				while(tmp->getNext()->getNext()!=NULL){
@@ -95,15 +96,15 @@ class List{
 		}
 		
 		
-		List* intersetion(List* l){
+		List<T>* intersetion(List<T>* l){
 			
-			Node *tmp,*tmp1,*ris;
-			ris=new Node;
+			Node<T> *tmp,*tmp1,*ris;
+			ris=new Node<T>;
 			tmp=head;
 			tmp1=head;
 			
-			List *l_new;
-			l_new=new List();
+			List<T> *l_new;
+			l_new=new List<T>();
 			
 			while(tmp!=NULL){
 				

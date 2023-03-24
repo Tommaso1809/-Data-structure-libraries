@@ -1,11 +1,12 @@
 #pragma once
 #include "Node.h"
 
+template<typename T>
 class List{
 	
 	private:
 		
-		Node* head;
+		Node<T>* head;
 	
 	public:
 	
@@ -14,14 +15,14 @@ class List{
 			head=NULL;
 		}
 		
-		Node* getHead(){
+		Node<T>* getHead(){
 			
 			return head;
 		}
 		
 		void print(){
 			
-			Node *tmp;
+			Node<T>* tmp;
 			tmp=head;
 			
 			while(tmp!=NULL){
@@ -33,10 +34,10 @@ class List{
 			cout<<"["<<"NULL"<<"]\n";
 		}	
 		
-		void push_front(int data){
+		void push_front(T data){
 			
-			Node *new_node;
-			new_node=new Node(data,head);
+			Node<T> *new_node;
+			new_node=new Node<T>(data,head);
 			head=new_node;
 		}
 		
@@ -47,7 +48,7 @@ class List{
 				cout<<"Empty List\n";
 			}
 			else{
-				Node *tmp,*tmp1;
+				Node<T> *tmp,*tmp1;
 				tmp=head;
 				tmp1=tmp->getNext();
 				delete tmp;
@@ -55,15 +56,15 @@ class List{
 			}
 		}
 		
-		void push_tail(int data){
+		void push_tail(T data){
 			
 			if(head==NULL){
 				
 				this->push_front(data);
 			}
 			
-			Node *new_node,*tmp;
-			new_node=new Node(data);
+			Node<T> *new_node,*tmp;
+			new_node=new Node<T>(data);
 			
 			tmp=head;
 			
@@ -80,8 +81,8 @@ class List{
 			
 			if(head!=NULL){
 				if(head->getNext()!=NULL){
-					Node *tmp;
-					tmp = new Node;
+					Node<T> *tmp;
+					tmp = new Node<T>;
 					tmp = head;
 					while(tmp->getNext()->getNext()!=NULL){
 						tmp = tmp->getNext();

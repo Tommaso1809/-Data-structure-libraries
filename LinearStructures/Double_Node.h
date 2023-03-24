@@ -2,12 +2,14 @@
 #include <iostream>
 using namespace std;
 
+template<typename T>
 class Node{
 	
 	private:
 		
-		Node* next;
-		int data;
+		Node<T>* next;
+		Node<T>* prev;
+		T data;
 	
 	public:
 	
@@ -15,36 +17,48 @@ class Node{
 		
 		}	
 		
-		Node(int data){
+		Node(T data){
 			
 			this->data=data;
 			this->next=NULL;
+			this->prev=NULL;
 		}
 		
-		Node(int data,Node* next){
+		Node(T data,Node<T>* next){
 			
 			this->data=data;
 			this->next=next;
+			this->prev=prev;
 		}
 		
-		void setData(int data){
+		void setData(T data){
 			
 			this->data=data;
 		}
 		
-		void setNext(Node* next){
+		void setNext(Node<T>* next){
 			
 			this->next=next;
 		}
 		
-		int getData(){
+		void setPrev(Node<T>* prev){
+			
+			this->data=data;
+		}
+		
+		T getData(){
 			
 			return data;
 		}
 		
-		Node* getNext(){
+		Node<T>* getNext(){
 			
 			return next;
+		}
+		
+		Node<T>* getPrev(){
+			
+			return prev;
 		}
 		
 		~Node(){
