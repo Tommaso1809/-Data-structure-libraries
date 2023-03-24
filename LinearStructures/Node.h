@@ -16,6 +16,13 @@ class Node{
 		
 		}	
 		
+		Node(const Node &n){
+    		Node *copy;
+    		copy = new Node();
+    		copy->data = n.data;
+    		copy->next = n.next;
+		}
+		
 		Node(T data){
 			
 			this->data=data;
